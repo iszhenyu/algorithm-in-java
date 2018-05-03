@@ -1,5 +1,7 @@
 package com.jianshuoschool.algorithm;
 
+import com.jianshuoschool.algorithm.sort.BucketSort;
+import com.jianshuoschool.algorithm.sort.InsertionSort;
 import com.jianshuoschool.algorithm.sort.MergeSort;
 
 /**
@@ -10,12 +12,29 @@ public class AlgorithmTest {
 
     public static void main(String[] args) {
         int[] arr = new int[]{3, 5, 7, 2, 1, 9};
-        testMergeSort(arr);
+
+        testInsertionSort(arr);
+//        System.out.println("------");
+//        testMergeSort(arr);
+//        System.out.println("------");
+//        testBucketSort(arr);
+    }
+
+    private static void testInsertionSort(int[] arr) {
+        printArr(arr);
+        InsertionSort.sort(arr);
+        printArr(arr);
     }
 
     private static void testMergeSort(int[] arr) {
         printArr(arr);
         MergeSort.sort(arr);
+        printArr(arr);
+    }
+
+    private static void testBucketSort(int[] arr) {
+        printArr(arr);
+        BucketSort.sort(arr);
         printArr(arr);
     }
 
