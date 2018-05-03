@@ -9,22 +9,25 @@ public class BinaryInsertionSort {
     public static void sort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int tmp = arr[i];
-            int low = 0;
-            int high = i - 1;
-
-            while (low <= high) {
-                int mid = (low + high) >>> 1;
-                if (tmp > arr[mid]) {
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
+            int index = binarySearch(arr, arr[i], i - 1);
+            for (int j = i - 1; j >= index; j--) {
+                arr[j + 1] = arr[j];
             }
-            for (int j = i; j > low; j--) {
-                arr[j] = arr[j - 1];
-            }
-            arr[low] = tmp;
+            arr[index] = tmp;
         }
+    }
+
+    private static int binarySearch(int[] arr, int target, int maxIndex) {
+        int find = 0;
+        while (find <= maxIndex) {
+            int mid = (find + maxIndex) / 2;
+            if (target > arr[mid]) {
+                find = mid + 1;
+            } else {
+                maxIndex = mid - 1;
+            }
+        }
+        return find;
     }
 
 }
