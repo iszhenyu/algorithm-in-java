@@ -10,48 +10,12 @@ public class AlgorithmTest {
 
     public static void main(String[] args) {
         int[] arr = new int[]{3, 5, 7, 2, 1, 9};
-        testQuickSort(arr);
+        testSort(arr);
     }
 
-    private static void testQuickSort(int[] arr) {
+    private static void testSort(int[] arr) {
         printArr(arr);
-        QuickSort.sort(arr);
-        printArr(arr);
-    }
-
-    private static void testBubbleSort(int[] arr) {
-        printArr(arr);
-        BubbleSort.sort(arr);
-        printArr(arr);
-    }
-
-    private static void testHeapSort(int[] arr) {
-        printArr(arr);
-        HeapSort.sort(arr);
-        printArr(arr);
-    }
-
-    private static void testSelectSort(int[] arr) {
-        printArr(arr);
-        SelectSort.sort(arr);
-        printArr(arr);
-    }
-
-    private static void testInsertionSort(int[] arr) {
-        printArr(arr);
-        InsertionSort.sort(arr);
-        printArr(arr);
-    }
-
-    private static void testMergeSort(int[] arr) {
-        printArr(arr);
-        MergeSort.sort(arr);
-        printArr(arr);
-    }
-
-    private static void testBucketSort(int[] arr) {
-        printArr(arr);
-        BucketSort.sort(arr);
+        BinaryInsertionSort.sort(arr);
         printArr(arr);
     }
 
