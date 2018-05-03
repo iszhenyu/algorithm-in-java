@@ -10,7 +10,13 @@ public class AlgorithmTest {
 
     public static void main(String[] args) {
         int[] arr = new int[]{3, 5, 7, 2, 1, 9};
-        testBubbleSort(arr);
+        testQuickSort(arr);
+    }
+
+    private static void testQuickSort(int[] arr) {
+        printArr(arr);
+        QuickSort.sort(arr);
+        printArr(arr);
     }
 
     private static void testBubbleSort(int[] arr) {
