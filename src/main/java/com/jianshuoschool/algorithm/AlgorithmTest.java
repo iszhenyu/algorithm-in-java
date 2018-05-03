@@ -3,6 +3,7 @@ package com.jianshuoschool.algorithm;
 import com.jianshuoschool.algorithm.sort.BucketSort;
 import com.jianshuoschool.algorithm.sort.InsertionSort;
 import com.jianshuoschool.algorithm.sort.MergeSort;
+import com.jianshuoschool.algorithm.sort.SelectSort;
 
 /**
  * @author zhen.yu
@@ -12,12 +13,13 @@ public class AlgorithmTest {
 
     public static void main(String[] args) {
         int[] arr = new int[]{3, 5, 7, 2, 1, 9};
+        testSelectSort(arr);
+    }
 
-        testInsertionSort(arr);
-//        System.out.println("------");
-//        testMergeSort(arr);
-//        System.out.println("------");
-//        testBucketSort(arr);
+    private static void testSelectSort(int[] arr) {
+        printArr(arr);
+        SelectSort.sort(arr);
+        printArr(arr);
     }
 
     private static void testInsertionSort(int[] arr) {
