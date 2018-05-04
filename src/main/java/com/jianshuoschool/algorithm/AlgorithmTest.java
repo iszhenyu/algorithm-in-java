@@ -10,13 +10,13 @@ public class AlgorithmTest {
 
     public static void main(String[] args) {
         int[] arr = new int[]{3, 5, 7, 2, 3, 1, 9};
-//        testSort(arr);
-        testCountingSort(arr);
+        testSort(arr);
+//        testCountingSort(arr);
     }
 
     private static void testSort(int[] arr) {
         printArr(arr);
-        BinaryInsertionSort.sort(arr);
+        ShellSort.sort(arr);
         printArr(arr);
     }
 
