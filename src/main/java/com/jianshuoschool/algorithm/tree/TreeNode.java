@@ -5,14 +5,27 @@ package com.jianshuoschool.algorithm.tree;
  * @since 2018/5/4
  */
 public class TreeNode {
-    public int data;
-    public TreeNode leftChild;
-    public TreeNode rightChild;
+    Integer data;
+    double weight;
+    TreeNode leftChild;
+    TreeNode rightChild;
 
-    public TreeNode() {
+    TreeNode() {
     }
 
-    public TreeNode(int data) {
+    TreeNode(int data) {
         this.data = data;
+    }
+
+    public TreeNode(Integer data, double weight) {
+        this.data = data;
+        this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "data=" + data +
+                '}';
     }
 }

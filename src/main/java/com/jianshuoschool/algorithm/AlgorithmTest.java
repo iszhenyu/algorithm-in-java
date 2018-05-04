@@ -1,6 +1,10 @@
 package com.jianshuoschool.algorithm;
 
 import com.jianshuoschool.algorithm.sort.*;
+import com.jianshuoschool.algorithm.tree.BinTreeInLink;
+import com.jianshuoschool.algorithm.tree.TreeNode;
+
+import java.util.List;
 
 /**
  * @author zhen.yu
@@ -9,9 +13,21 @@ import com.jianshuoschool.algorithm.sort.*;
 public class AlgorithmTest {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{3, 5, 7, 2, 3, 1, 9};
-        testSort(arr);
+//        int[] arr = new int[]{3, 5, 7, 2, 3, 1, 9};
+//        testSort(arr);
 //        testCountingSort(arr);
+        testTreeTraversing();
+    }
+
+    private static void testTreeTraversing() {
+        BinTreeInLink binTree = new BinTreeInLink(3);
+        TreeNode t5 = binTree.add(binTree.root(), 5, true);
+        TreeNode t7 = binTree.add(binTree.root(), 7, false);
+        TreeNode t2 = binTree.add(t5, 2, true);
+        TreeNode t1 = binTree.add(t5, 1, false);
+        TreeNode t9 = binTree.add(t7, 9, true);
+        List<TreeNode> result = binTree.postOrder();
+        System.out.println(result);
     }
 
     private static void testSort(int[] arr) {
