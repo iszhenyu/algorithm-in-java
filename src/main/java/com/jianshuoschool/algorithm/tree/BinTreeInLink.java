@@ -182,6 +182,29 @@ public class BinTreeInLink {
         return result;
     }
 
+    public List<TreeNode> preOrder3() {
+        List<TreeNode> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+
+        TreeNode cur = root;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(cur);
+        while (!stack.isEmpty()) {
+            cur = stack.pop();
+            result.add(cur);
+            if (cur.rightChild != null) {
+                stack.push(cur.rightChild);
+            }
+            if (cur.leftChild != null) {
+                stack.push(cur.leftChild);
+            }
+        }
+
+        return result;
+    }
+
     /**
      * 中序非递归遍历
      */

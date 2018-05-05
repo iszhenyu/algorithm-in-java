@@ -26,7 +26,7 @@ public class AlgorithmTest {
 //        TreeNode t2 = binTree.add(t5, 2, true);
         TreeNode t1 = binTree.add(t5, 1, false);
         TreeNode t9 = binTree.add(t7, 9, false);
-        List<TreeNode> result = binTree.deepOrder();
+        List<TreeNode> result = binTree.preOrder3();
         System.out.println(result);
     }
 
