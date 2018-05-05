@@ -1,6 +1,5 @@
-package com.jianshuoschool.algorithm.tree;
+package com.xiaomianshi.algorithm.tree;
 
-import javax.management.Query;
 import java.util.*;
 
 /**

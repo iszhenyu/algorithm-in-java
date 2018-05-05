@@ -1,4 +1,4 @@
-package com.jianshuoschool.algorithm.sort;
+package com.xiaomianshi.algorithm.sort;
 
 /**
  * @author zhen.yu

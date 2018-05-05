@@ -1,8 +1,8 @@
-package com.jianshuoschool.algorithm;
+package com.xiaomianshi.algorithm;
 
-import com.jianshuoschool.algorithm.sort.*;
-import com.jianshuoschool.algorithm.tree.BinTreeInLink;
-import com.jianshuoschool.algorithm.tree.TreeNode;
+import com.xiaomianshi.algorithm.sort.*;
+import com.xiaomianshi.algorithm.tree.BinTreeInLink;
+import com.xiaomianshi.algorithm.tree.TreeNode;
 
 import java.util.List;
 

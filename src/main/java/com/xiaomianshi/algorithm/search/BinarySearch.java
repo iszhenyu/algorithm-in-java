@@ -1,4 +1,4 @@
-package com.jianshuoschool.algorithm.search;
+package com.xiaomianshi.algorithm.search;
 
 /**
  * @author zhen.yu

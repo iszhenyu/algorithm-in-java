@@ -1,6 +1,6 @@
-package com.jianshuoschool.algorithm.sort;
+package com.xiaomianshi.algorithm.sort;
 
-import com.jianshuoschool.algorithm.Common;
+import com.xiaomianshi.algorithm.Common;
 
 /**
  * @author zhen.yu

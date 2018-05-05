@@ -1,4 +1,4 @@
-package com.jianshuoschool.algorithm;
+package com.xiaomianshi.algorithm;
 
 /**
  * @author zhen.yu
