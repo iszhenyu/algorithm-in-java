@@ -23,6 +23,13 @@ public class TreeNode {
     }
 
     @Override
+    public int hashCode() {
+        int left = leftChild == null ? 0 : leftChild.data;
+        int right = rightChild == null ? 0 : rightChild.data;
+        return data + left + right;
+    }
+
+    @Override
     public String toString() {
         return "TreeNode{" +
                 "data=" + data +

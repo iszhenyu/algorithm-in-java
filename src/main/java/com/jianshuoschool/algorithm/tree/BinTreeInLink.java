@@ -1,5 +1,6 @@
 package com.jianshuoschool.algorithm.tree;
 
+import javax.management.Query;
 import java.util.*;
 
 /**
@@ -158,118 +159,113 @@ public class BinTreeInLink {
      * @return List
      */
     public List<TreeNode> preOrder2() {
-        if (empty()) {
-            return Collections.emptyList();
+        List<TreeNode> result = new ArrayList<>();
+        if (root == null) {
+            return result;
         }
 
-        List<TreeNode> result = new ArrayList<>();
-
-        LinkedList<TreeNode> stack = new LinkedList<>();
         TreeNode cur = root;
-
-        result.add(cur);
-        stack.push(cur);
-
-        while (cur != null && !stack.isEmpty()) {
-            while (cur.leftChild != null) {
+        Deque<TreeNode> stack = new LinkedList<>();
+        while (cur != null || !stack.isEmpty()) {
+            // 持续遍历左子树，直到左子树为空
+            while (cur != null) {
+                result.add(cur);
+                stack.push(cur);
                 cur = cur.leftChild;
-                result.add(cur);
-                stack.push(cur);
             }
-            if (cur.rightChild != null) {
+            if (!stack.isEmpty()) {
+                cur = stack.pop();
                 cur = cur.rightChild;
-                result.add(cur);
-                stack.push(cur);
-            } else {
-                while (!stack.isEmpty()) {
-                    cur = stack.pop();
-                    if (cur.rightChild != null) {
-                        cur = cur.rightChild;
-                        result.add(cur);
-                        stack.push(cur);
-                        break;
-                    }
-                }
             }
         }
 
         return result;
     }
 
+    /**
+     * 中序非递归遍历
+     */
     public List<TreeNode> inOrder2() {
-        if (empty()) {
-            return Collections.emptyList();
+        List<TreeNode> result = new ArrayList<>();
+        if (root == null) {
+            return result;
         }
 
-        List<TreeNode> result = new ArrayList<>();
-        LinkedList<TreeNode> stack = new LinkedList<>();
         TreeNode cur = root;
-        stack.push(cur);
-
-        while (cur != null && !stack.isEmpty()) {
-            while (cur.leftChild != null) {
+        Deque<TreeNode> stack = new LinkedList<>();
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
                 cur = cur.leftChild;
-                stack.push(cur);
             }
-            if (cur.rightChild != null) {
+
+            if (!stack.isEmpty()) {
+                cur = stack.pop();
+                result.add(cur);
                 cur = cur.rightChild;
-                stack.push(cur);
-            } else {
-                while (!stack.isEmpty()) {
-                    cur = stack.pop();
-                    result.add(cur);
-                    if (cur.rightChild != null) {
-                        cur = cur.rightChild;
-                        stack.push(cur);
-                        break;
-                    }
-                }
             }
         }
 
         return result;
     }
 
+    /**
+     * 非递归后序遍历
+     *
+     * 因为后序遍历可以看做，从右到左的先序遍历的逆过程，所以可以利用辅助栈
+     */
     public List<TreeNode> postOrder2() {
-        if (empty()) {
-            return Collections.emptyList();
+        List<TreeNode> result = new ArrayList<>();
+        if (root == null) {
+            return result;
         }
 
-        Set<TreeNode> visited = new HashSet<>();
-        List<TreeNode> result = new ArrayList<>();
-        LinkedList<TreeNode> stack = new LinkedList<>();
         TreeNode cur = root;
-        stack.push(cur);
+        Deque<TreeNode> assistStack = new ArrayDeque<>();
+        Deque<TreeNode> outputStack = new ArrayDeque<>();
+        assistStack.push(cur);
 
-        while (cur != null && !stack.isEmpty()) {
-            while (cur.leftChild != null) {
-                cur = cur.leftChild;
-                stack.push(cur);
+        while (!assistStack.isEmpty()) {
+            cur = assistStack.pop();
+            outputStack.push(cur);
+            if (cur.leftChild != null) {
+                assistStack.push(cur.leftChild);
             }
             if (cur.rightChild != null) {
-                cur = cur.rightChild;
-                stack.push(cur);
-            } else {
-                while (!stack.isEmpty()) {
-                    TreeNode top = stack.peek();
-                    if (top.rightChild == null) {
-                        cur = stack.pop();
-                        result.add(cur);
-                    } else {
-                        if (!visited.contains(top)) {
-                            visited.add(top);
-                            cur = top.rightChild;
-                            stack.push(cur);
-                            break;
-                        } else {
-                            cur = stack.pop();
-                            result.add(cur);
-                        }
-                    }
-                }
+                assistStack.push(cur.rightChild);
             }
         }
 
+        while (!outputStack.isEmpty()) {
+            cur = outputStack.pop();
+            result.add(cur);
+        }
+        return result;
+    }
+
+    /**
+     * 按层遍历
+     */
+    public List<TreeNode> deepOrder() {
+        List<TreeNode> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+
+        TreeNode cur = root;
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(cur);
+
+        while (!queue.isEmpty()) {
+            cur = queue.poll();
+            result.add(cur);
+            if (cur.leftChild != null) {
+                queue.add(cur.leftChild);
+            }
+            if (cur.rightChild != null) {
+                queue.add(cur.rightChild);
+            }
+        }
         return result;
     }
 }

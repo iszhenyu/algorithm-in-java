@@ -23,10 +23,10 @@ public class AlgorithmTest {
         BinTreeInLink binTree = new BinTreeInLink(3);
         TreeNode t5 = binTree.add(binTree.root(), 5, true);
         TreeNode t7 = binTree.add(binTree.root(), 7, false);
-        TreeNode t2 = binTree.add(t5, 2, true);
+//        TreeNode t2 = binTree.add(t5, 2, true);
         TreeNode t1 = binTree.add(t5, 1, false);
-        TreeNode t9 = binTree.add(t7, 9, true);
-        List<TreeNode> result = binTree.postOrder();
+        TreeNode t9 = binTree.add(t7, 9, false);
+        List<TreeNode> result = binTree.deepOrder();
         System.out.println(result);
     }
 
