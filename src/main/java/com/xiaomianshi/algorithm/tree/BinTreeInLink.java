@@ -234,7 +234,8 @@ public class BinTreeInLink {
     /**
      * 非递归后序遍历
      *
-     * 因为后序遍历可以看做，从右到左的先序遍历的逆过程，所以可以利用辅助栈
+     * 后序遍历可以看做是从右到左的先序遍历的逆过程，所以可以利用辅助栈，
+     * 按照从右至左的先序遍历，遍历的结果存到辅助栈里，然后将辅助栈的元素依次出栈
      */
     public List<TreeNode> postOrder2() {
         List<TreeNode> result = new ArrayList<>();
@@ -261,6 +262,88 @@ public class BinTreeInLink {
         while (!outputStack.isEmpty()) {
             cur = outputStack.pop();
             result.add(cur);
+        }
+        return result;
+    }
+
+    /**
+     * 非递归后序遍历
+     *
+     * 对于任一结点P，将其入栈，然后沿其左子树一直往下搜索，直到搜索到没有左孩子的结点，
+     * 此时该结点出现在栈顶，但是此时不能将其出栈并访问，因为其右孩子还为被访问。
+     * 所以，接下来按照相同的规则对其右子树进行相同的处理，
+     * 当访问完其右孩子时，该结点又出现在栈顶，此时可以将其出栈并访问。
+     * 在这个过程中，每个结点都两次出现在栈顶，只有在第二次出现在栈顶时，才能访问它。
+     */
+    public List<TreeNode> postOrder3() {
+        List<TreeNode> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+
+        Map<TreeNode, Boolean> visitedNodes = new HashMap<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                visitedNodes.put(cur, true);
+                stack.push(cur);
+                cur = cur.leftChild;
+            }
+
+            if (!stack.isEmpty()) {
+                cur = stack.pop();
+                if (visitedNodes.get(cur)) {
+                    while (cur != null) {
+                        visitedNodes.put(cur, false);
+                        stack.push(cur);
+                        cur = cur.rightChild;
+                    }
+                } else {
+                    result.add(cur);
+                    cur = null;
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 对于任一结点P，先将其入栈。
+     * 如果P不存在左孩子和右孩子，则可以直接访问它；
+     * 或者P存在左孩子或者右孩子，但是其左孩子和右孩子都已被访问过了，则同样可以直接访问该结点。
+     * 若非上述两种情况，则将P的右孩子和左孩子依次入栈，
+     * 这样就保证了每次取栈顶元素的时候，左孩子在右孩子前面被访问，左孩子和右孩子都在根结点前面被访问。
+     */
+    public List<TreeNode> postOrder4() {
+        List<TreeNode> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+
+        TreeNode cur = root;
+        TreeNode pre = null;
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(cur);
+        while (!stack.isEmpty()) {
+            cur = stack.peek();
+            // 1）叶子节点直接访问
+            // 2）如果当前节点要被加到result中，则一定满足：
+            //     1、左子节点刚刚被添加（没有右子几点的情况）
+            //     2、右子节点刚刚被添加（有或没有左子节点）
+            if ((cur.leftChild == null && cur.rightChild == null) ||
+                    (pre != null && (pre == cur.leftChild || pre == cur.rightChild))) {
+                result.add(cur);
+                stack.pop();
+                pre = cur;
+            } else {
+                if (cur.rightChild != null) {
+                    stack.push(cur.rightChild);
+                }
+                if (cur.leftChild != null) {
+                    stack.push(cur.leftChild);
+                }
+            }
         }
         return result;
     }

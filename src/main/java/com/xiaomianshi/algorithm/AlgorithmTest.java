@@ -17,16 +17,22 @@ public class AlgorithmTest {
 //        testSort(arr);
 //        testCountingSort(arr);
         testTreeTraversing();
+//        testRedBag();
+    }
+
+    private static void testRedBag() {
+        System.out.println(RedBag.randomAssign2(100, 10));
     }
 
     private static void testTreeTraversing() {
         BinTreeInLink binTree = new BinTreeInLink(3);
         TreeNode t5 = binTree.add(binTree.root(), 5, true);
         TreeNode t7 = binTree.add(binTree.root(), 7, false);
-//        TreeNode t2 = binTree.add(t5, 2, true);
+        TreeNode t2 = binTree.add(t5, 2, true);
         TreeNode t1 = binTree.add(t5, 1, false);
         TreeNode t9 = binTree.add(t7, 9, false);
-        List<TreeNode> result = binTree.preOrder3();
+        binTree.add(t2, 8, true);
+        List<TreeNode> result = binTree.postOrder4();
         System.out.println(result);
     }
 
