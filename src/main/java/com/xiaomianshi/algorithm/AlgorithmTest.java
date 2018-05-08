@@ -13,12 +13,12 @@ import java.util.List;
 public class AlgorithmTest {
 
     public static void main(String[] args) {
-//        int[] arr = new int[]{3, 5, 7, 2, 3, 1, 9};
-//        testSort(arr);
+        int[] arr = new int[]{3, 5, 7, 2, 3, 1, 9};
+        testSort(arr);
 //        testCountingSort(arr);
 //        testTreeTraversing();
 //        testRedBag();
-        testConversion();
+//        testConversion();
     }
 
     private static void testConversion() {
@@ -45,7 +45,7 @@ public class AlgorithmTest {
 
     private static void testSort(int[] arr) {
         printArr(arr);
-        ShellSort.sort(arr);
+        RadixSort.lsdSort(arr);
         printArr(arr);
     }
 

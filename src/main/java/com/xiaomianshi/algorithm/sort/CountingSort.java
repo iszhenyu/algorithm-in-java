@@ -32,4 +32,42 @@ public class CountingSort {
         }
     }
 
+    public static void sort2(int[] arr) {
+        int min = arr[0];
+        int max = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            int cur = arr[i];
+            if (cur > max) {
+                max = cur;
+            }
+            if (cur < min) {
+                min = cur;
+            }
+        }
+
+        int k = max - min + 1;
+        int[] assist = new int[k];
+        for (int i = 0; i < arr.length; i++) {
+            assist[arr[i] - min] += 1;
+        }
+
+        for (int i = 0; i < k; i++) {
+            // 当前位置元素数量
+            int count = assist[i];
+            if (i > 0) {
+                assist[i] += assist[i - 1];
+            }
+            int curVal = i + min;
+            int maxIdx = assist[i];
+            if (count == 1) {
+                arr[maxIdx - 1] = curVal;
+            } else {
+                for (int j = 0; j < count; j++) {
+                    arr[maxIdx - 1] = curVal;
+                    maxIdx--;
+                }
+            }
+        }
+    }
+
 }
