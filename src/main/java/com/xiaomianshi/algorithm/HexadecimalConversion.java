@@ -37,15 +37,39 @@ public class HexadecimalConversion {
         StringBuilder sb = new StringBuilder();
         long rest = isMinus ? -number : number;
 
-        int base = 0;
         while (rest > 0) {
             int last = (int) rest % n;
-            rest = rest - last * (int) Math.pow(n, base);
-            base += 1;
+            sb.append(CHAR_ARR[last]);
+            rest = rest / n;
         }
         if (isMinus) {
             sb.append("-");
         }
+        return sb.reverse().toString();
+    }
+
+    /**
+     * 二进制转16进制
+     */
+    public static String c2To16(String number) {
+        String positiveNumber = number;
+        StringBuilder sb = new StringBuilder();
+        char[] numberArr = positiveNumber.toCharArray();
+
+        int bitCount = 0;
+        int digit = 0;
+        for (int i = numberArr.length - 1; i >= 0; i--) {
+            if (numberArr[i] == '1') {
+                digit += Math.pow(2, bitCount);
+            }
+            bitCount++;
+            if (bitCount == 4 || i == 0) {
+                sb.append(CHAR_ARR[digit]);
+                bitCount = 0;
+                digit = 0;
+            }
+        }
+
         return sb.reverse().toString();
     }
 }

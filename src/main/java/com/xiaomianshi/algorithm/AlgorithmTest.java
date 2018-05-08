@@ -13,18 +13,18 @@ import java.util.List;
 public class AlgorithmTest {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{3, 5, 7, 2, 3, 1, 9};
-        testSort(arr);
+//        int[] arr = new int[]{3, 5, 7, 2, 3, 1, 9};
+//        testSort(arr);
 //        testCountingSort(arr);
 //        testTreeTraversing();
 //        testRedBag();
-//        testConversion();
+        testConversion();
     }
 
     private static void testConversion() {
         String numStr = "1101";
         long num = 13L;
-        System.out.println(HexadecimalConversion.tenToN(num, 2));
+        System.out.println(HexadecimalConversion.c2To16("111101"));
     }
 
     private static void testRedBag() {
