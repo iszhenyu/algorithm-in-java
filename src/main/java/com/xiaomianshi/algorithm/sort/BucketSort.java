@@ -31,7 +31,6 @@ public class BucketSort {
                 output[j++] = p.data;
             }
         }
-
     }
 
     private static int hash(int value) {
