@@ -33,6 +33,11 @@ public class RedBag {
 
     /**
      * 算法2：线段切割法
+     *
+     * 假设100分，分给10个人
+     *
+     * 1、100分有99个可切割位置，从这个99个位置随机出9个不重复的位置
+     * 2、10个人每人先预先分配一分，剩下90分，算上两端共有91个位置，从这91个位置随机出9个位置，可以重复
      */
     public static List<Integer> randomAssign2(int totalAmount, int totalPerson) {
         List<Integer> result = new ArrayList<>(totalPerson);
@@ -55,6 +60,14 @@ public class RedBag {
         }
         result.add(totalAmount - lastPos);
         return result;
+    }
+
+    private static List<Integer> segmentMethod1(int totalAmount, int totalPerson) {
+        return null;
+    }
+
+    private static List<Integer> segmentMethod2(int totalAmount, int totalPerson) {
+        return null;
     }
 
 }

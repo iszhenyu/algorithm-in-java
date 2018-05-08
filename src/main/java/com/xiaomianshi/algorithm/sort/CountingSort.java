@@ -4,7 +4,7 @@ package com.xiaomianshi.algorithm.sort;
  * @author zhen.yu
  * @since 2018/5/3
  */
-public class CountiingSort {
+public class CountingSort {
 
     /**
      * 计数排序

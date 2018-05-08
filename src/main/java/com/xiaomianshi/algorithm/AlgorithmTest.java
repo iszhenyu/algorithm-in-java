@@ -16,8 +16,15 @@ public class AlgorithmTest {
 //        int[] arr = new int[]{3, 5, 7, 2, 3, 1, 9};
 //        testSort(arr);
 //        testCountingSort(arr);
-        testTreeTraversing();
+//        testTreeTraversing();
 //        testRedBag();
+        testConversion();
+    }
+
+    private static void testConversion() {
+        String numStr = "1101";
+        long num = 13L;
+        System.out.println(HexadecimalConversion.tenToN(num, 2));
     }
 
     private static void testRedBag() {
@@ -52,7 +59,7 @@ public class AlgorithmTest {
         }
 
         printArr(arr);
-        CountiingSort.sort(arr, result, maxVal);
+        CountingSort.sort(arr, result, maxVal);
         printArr(result);
     }
 
