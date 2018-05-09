@@ -24,7 +24,7 @@ public class AlgorithmTest {
     private static void testConversion() {
         String numStr = "1101";
         long num = 13L;
-        System.out.println(HexadecimalConversion.c2To16("111101"));
+        System.out.println(HexadecimalConversion.c16To2("3d"));
     }
 
     private static void testRedBag() {

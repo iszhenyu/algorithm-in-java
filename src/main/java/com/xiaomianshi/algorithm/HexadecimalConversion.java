@@ -72,4 +72,21 @@ public class HexadecimalConversion {
 
         return sb.reverse().toString();
     }
+
+    /**
+     * 16进制转2进制
+     */
+    public static String c16To2(String number) {
+        StringBuilder sb = new StringBuilder();
+        char[] numberArr = number.toCharArray();
+        for (int i = numberArr.length - 1; i >= 0; i--) {
+            int num = NUM_STR.indexOf(numberArr[i]);
+
+            while (num > 0) {
+                sb.append(num % 2);
+                num = num / 2;
+            }
+        }
+        return sb.reverse().toString();
+    }
 }
