@@ -18,7 +18,28 @@ public class AlgorithmTest {
 //        testCountingSort(arr);
 //        testTreeTraversing();
 //        testRedBag();
-        testConversion();
+//        testConversion();
+//        testLargeInteger();
+        testRebuildTree();
+    }
+
+    private static void testRebuildTree() {
+        TreeNode root = RebuildBinTree.rebuild(RebuildBinTree.PRE_ORDER, RebuildBinTree.IN_ORDER);
+        printTree(root);
+    }
+
+    private static void printTree(TreeNode root) {
+        System.out.println(root.data);
+        if (root.leftChild != null) {
+            printTree(root.leftChild);
+        }
+        if (root.rightChild != null) {
+            printTree(root.rightChild);
+        }
+    }
+
+    private static void testLargeInteger() {
+        System.out.println(LargeInteger.multiply("140", "110"));
     }
 
     private static void testConversion() {

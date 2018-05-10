@@ -5,15 +5,15 @@ package com.xiaomianshi.algorithm.tree;
  * @since 2018/5/4
  */
 public class TreeNode {
-    Integer data;
+    public Integer data;
     double weight;
-    TreeNode leftChild;
-    TreeNode rightChild;
+    public TreeNode leftChild;
+    public TreeNode rightChild;
 
-    TreeNode() {
+    public TreeNode() {
     }
 
-    TreeNode(int data) {
+    public TreeNode(int data) {
         this.data = data;
     }
 
