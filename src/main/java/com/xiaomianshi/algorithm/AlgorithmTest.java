@@ -20,7 +20,12 @@ public class AlgorithmTest {
 //        testRedBag();
 //        testConversion();
 //        testLargeInteger();
-        testRebuildTree();
+//        testRebuildTree();
+        test();
+    }
+
+    private static void test() {
+        System.out.println(SpinArray.min3(new int[]{4, 5, 1, 2, 3}));
     }
 
     private static void testRebuildTree() {
