@@ -15,4 +15,17 @@ public class Common {
         arr[j] = tmp;
     }
 
+    public static class LinkNode {
+        public int data;
+        public LinkNode next;
+        public LinkNode pre;
+
+        public LinkNode() {
+        }
+
+        public LinkNode(int data) {
+            this.data = data;
+        }
+    }
+
 }

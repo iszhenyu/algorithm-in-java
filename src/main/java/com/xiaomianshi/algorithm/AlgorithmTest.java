@@ -1,5 +1,7 @@
 package com.xiaomianshi.algorithm;
 
+import com.xiaomianshi.algorithm.offer.RebuildBinTree;
+import com.xiaomianshi.algorithm.offer.SpinArray;
 import com.xiaomianshi.algorithm.sort.*;
 import com.xiaomianshi.algorithm.tree.BinTreeInLink;
 import com.xiaomianshi.algorithm.tree.TreeNode;

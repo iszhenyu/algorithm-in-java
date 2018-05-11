@@ -1,4 +1,4 @@
-package com.xiaomianshi.algorithm;
+package com.xiaomianshi.algorithm.offer;
 
 import com.xiaomianshi.algorithm.tree.TreeNode;
 
@@ -8,8 +8,8 @@ import com.xiaomianshi.algorithm.tree.TreeNode;
  */
 public class RebuildBinTree {
 
-    static int[] PRE_ORDER = new int[]{1, 2, 4, 7, 3, 5, 6, 8};
-    static int[] IN_ORDER = new int[]{4, 7, 2, 1, 5, 3, 8, 6};
+    public static int[] PRE_ORDER = new int[]{1, 2, 4, 7, 3, 5, 6, 8};
+    public static int[] IN_ORDER = new int[]{4, 7, 2, 1, 5, 3, 8, 6};
 
     public static TreeNode rebuild(int[] preOrder, int[] inOrder) {
         TreeNode root = new TreeNode();
