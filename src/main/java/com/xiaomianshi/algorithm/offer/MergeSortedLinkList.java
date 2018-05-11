@@ -45,6 +45,23 @@ public class MergeSortedLinkList {
         return res;
     }
 
+    public static Common.LinkNode merge2(Common.LinkNode link1, Common.LinkNode link2) {
+        if (link1 == null) {
+            return link2;
+        } else if (link2 == null) {
+            return link1;
+        }
+        Common.LinkNode mergedHead = null;
+        if (link1.data < link2.data) {
+            mergedHead = link1;
+            mergedHead.next = merge2(link1.next, link2);
+        } else {
+            mergedHead = link2;
+            mergedHead.next = merge2(link1, link2.next);
+        }
+        return mergedHead;
+    }
+
     public static void main(String[] args) {
         Common.LinkNode root1 = new Common.LinkNode(1);
         Common.LinkNode cur = root1;
@@ -66,7 +83,7 @@ public class MergeSortedLinkList {
         cur = cur.next;
         cur.next = new Common.LinkNode(9);
 
-        Common.LinkNode root = merge(root1, root2);
+        Common.LinkNode root = merge2(root1, root2);
         cur = root;
         while (cur != null) {
             System.out.println(cur.data);
