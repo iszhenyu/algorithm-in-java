@@ -373,6 +373,66 @@ public class BinTreeInLink {
         }
         return result;
     }
+
+    /**
+     * 遍历指定的层
+     */
+    public List<TreeNode> visitSpecifiedLevel(int level) {
+        if (level <= 0 || root == null) {
+            return Collections.emptyList();
+        }
+
+        List<TreeNode> result = new ArrayList<>();
+        TreeNode cur = root;
+        Map<TreeNode, Integer> levelMap = new HashMap<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(cur);
+        levelMap.put(cur, 1);
+
+        while (!queue.isEmpty()) {
+            cur = queue.poll();
+            int curLevel = levelMap.get(cur);
+            if (curLevel == level) {
+                result.add(cur);
+            } else if (curLevel < level) {
+                if (cur.leftChild != null) {
+                    queue.add(cur.leftChild);
+                    levelMap.put(cur.leftChild, curLevel + 1);
+                }
+                if (cur.rightChild != null) {
+                    queue.add(cur.rightChild);
+                    levelMap.put(cur.rightChild, curLevel + 1);
+                }
+            } else {
+                break;
+            }
+        }
+        return result;
+    }
+
+    public List<TreeNode> visitSpecifiedLevel2(int level) {
+        if (level <= 0 || root == null) {
+            return Collections.emptyList();
+        }
+        return subVisit(Collections.singletonList(root), level, 1);
+    }
+
+    public List<TreeNode> subVisit(List<TreeNode> parentNodes, int level, int curLevel) {
+        if (level == curLevel) {
+            return parentNodes;
+        } else {
+            List<TreeNode> result = new ArrayList<>();
+            for (TreeNode node: parentNodes) {
+                if (node.leftChild != null) {
+                    result.add(node.leftChild);
+                }
+                if (node.rightChild != null) {
+                    result.add(node.rightChild);
+                }
+            }
+            return subVisit(result, level, curLevel + 1);
+        }
+    }
 }
 
 

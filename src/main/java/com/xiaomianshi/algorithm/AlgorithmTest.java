@@ -18,12 +18,12 @@ public class AlgorithmTest {
 //        int[] arr = new int[]{3, 5, 7, 2, 3, 1, 9};
 //        testSort(arr);
 //        testCountingSort(arr);
-//        testTreeTraversing();
+        testTree();
 //        testRedBag();
 //        testConversion();
 //        testLargeInteger();
 //        testRebuildTree();
-        test();
+//        test();
     }
 
     private static void test() {
@@ -59,7 +59,7 @@ public class AlgorithmTest {
         System.out.println(RedBag.randomAssign2(100, 10));
     }
 
-    private static void testTreeTraversing() {
+    private static void testTree() {
         BinTreeInLink binTree = new BinTreeInLink(3);
         TreeNode t5 = binTree.add(binTree.root(), 5, true);
         TreeNode t7 = binTree.add(binTree.root(), 7, false);
@@ -67,7 +67,7 @@ public class AlgorithmTest {
         TreeNode t1 = binTree.add(t5, 1, false);
         TreeNode t9 = binTree.add(t7, 9, false);
         binTree.add(t2, 8, true);
-        List<TreeNode> result = binTree.postOrder4();
+        List<TreeNode> result = binTree.visitSpecifiedLevel2(3);
         System.out.println(result);
     }
 
