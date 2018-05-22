@@ -63,29 +63,29 @@ public class FindPathInBinTree {
         subPrint2(root, sum, total, stack);
     }
 
-    private static void subPrint2(TreeNode root, int sum, int curTotal, Deque<TreeNode> stack) {
-        curTotal += root.data;
+    private static void subPrint2(TreeNode root, int sum, int curSum, Deque<TreeNode> stack) {
         stack.push(root);
+        curSum += root.data;
 
         boolean isLeaf = root.leftChild == null && root.rightChild == null;
-        if (isLeaf && sum == curTotal) {
+        if (isLeaf && sum == curSum) {
             Iterator<TreeNode> it = stack.iterator();
             while (it.hasNext()) {
                 System.out.println(it.next());
             }
-            System.out.println("===");
+            System.out.println("--- split line ---");
         }
 
         if (root.leftChild != null) {
-            subPrint2(root.leftChild, sum, curTotal, stack);
+            subPrint2(root.leftChild, sum, curSum, stack);
         }
 
         if (root.rightChild != null) {
-            subPrint2(root.rightChild, sum, curTotal, stack);
+            subPrint2(root.rightChild, sum, curSum, stack);
         }
 
         TreeNode poped = stack.pop();
-        curTotal -= poped.data;
+        curSum -= poped.data;
     }
 
 
