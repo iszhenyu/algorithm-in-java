@@ -17,6 +17,9 @@ public class PrintFullArrangement {
         subPrint(arr, 0);
     }
 
+    /**
+     * 将每个元素放到余下n-1个元素组成的队列最前方，然后对剩余元素进行全排列，依次递归下去。
+     */
     private static void subPrint(int[] arr, int start) {
         if (start >= arr.length) {
             Arrays.stream(arr).forEach(System.out::print);
