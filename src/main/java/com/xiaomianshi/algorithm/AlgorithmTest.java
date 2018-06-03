@@ -66,8 +66,10 @@ public class AlgorithmTest {
         TreeNode t2 = binTree.add(t5, 2, true);
         TreeNode t1 = binTree.add(t5, 1, false);
         TreeNode t9 = binTree.add(t7, 9, false);
+        binTree.add(t1, 10, true);
+        binTree.add(t1, 4, false);
         binTree.add(t2, 8, true);
-        List<TreeNode> result = binTree.visitSpecifiedLevel2(3);
+        List<TreeNode> result = binTree.postOrder3();
         System.out.println(result);
     }
 

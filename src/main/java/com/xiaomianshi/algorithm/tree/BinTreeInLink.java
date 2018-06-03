@@ -294,11 +294,9 @@ public class BinTreeInLink {
             if (!stack.isEmpty()) {
                 cur = stack.pop();
                 if (visitedNodes.get(cur)) {
-                    while (cur != null) {
-                        visitedNodes.put(cur, false);
-                        stack.push(cur);
-                        cur = cur.rightChild;
-                    }
+                    visitedNodes.put(cur, false);
+                    stack.push(cur);
+                    cur = cur.rightChild;
                 } else {
                     result.add(cur);
                     cur = null;
